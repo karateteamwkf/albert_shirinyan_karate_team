@@ -1,1 +1,266 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Albert Shirinyan Karate Team WKF</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-armenian@5.0.0/index.css">
+<style>
+:root{--bg:#22333b;--text:#0a0908;--frame:#eae0d5}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Armenian',sans-serif;overflow-x:hidden}
+.frame-card{background:var(--frame);color:var(--text);border-radius:20px;padding:2rem;box-shadow:0 15px 50px rgba(0,0,0,.35)}
+.nav-link{position:relative;transition:color .3s;cursor:pointer}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--frame);transition:width .3s}
+.nav-link:hover::after{width:100%}
+.lang-btn{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;transition:all .3s;cursor:pointer;font-size:13px;font-weight:700;background:transparent;border:1px solid transparent;color:var(--frame)}
+.lang-btn:hover{background:rgba(234,224,213,.1)}
+.lang-btn.active{background:var(--frame);color:var(--text);border-color:var(--frame)}
+.flag{width:22px;height:15px;border-radius:3px;display:inline-block;overflow:hidden;flex-shrink:0}
+.uk-flag{background:#012169;position:relative}
+.uk-flag::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 45%,#fff 45% 55%,transparent 55%),linear-gradient(to right,transparent 45%,#fff 45% 55%,transparent 55%)}
+.uk-flag::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 45%,#C8102E 45% 55%,transparent 55%),linear-gradient(-45deg,transparent 45%,#C8102E 45% 55%,transparent 55%)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744512_121.jpg?v=1792232409');background-size:cover;background-position:center;filter:brightness(.5);transform:scale(1.05);animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{0%{transform:scale(1.05)}100%{transform:scale(1.15)}}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem}
+.hero-title{font-size:clamp(2.2rem,6vw,4.8rem);font-weight:900;letter-spacing:2px;color:var(--frame);text-shadow:0 4px 25px rgba(0,0,0,.7);line-height:1.1;font-family:'Courier New',monospace}
+.hero-subtitle{font-size:clamp(.9rem,1.8vw,1.3rem);color:var(--frame);margin-top:1rem;opacity:.9;letter-spacing:4px;text-transform:uppercase}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-140px);transition:opacity 1.2s ease,transform 1.2s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(140px);transition:opacity 1.2s ease,transform 1.2s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.section-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:var(--frame);margin-bottom:1.5rem;text-align:center}
+.section-title::after{content:'';display:block;width:80px;height:3px;background:var(--frame);margin:1rem auto 0;border-radius:2px}
+.photo-slide{border-radius:16px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.45);transition:transform .5s}
+.photo-slide:hover{transform:scale(1.03)}
+.photo-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.marquee-container{width:100%;overflow:hidden;padding:2rem 0;position:relative}
+.marquee-track{display:flex;gap:2rem;animation:marquee 40s linear infinite;width:max-content}
+.marquee-photo{width:200px;height:200px;border-radius:50%;overflow:hidden;border:4px solid var(--frame);box-shadow:0 8px 25px rgba(0,0,0,.5);flex-shrink:0;animation:pulse 3.5s ease-in-out infinite}
+.marquee-photo img{width:100%;height:100%;object-fit:cover}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.map-icon{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--frame);color:var(--text);border-radius:12px;cursor:pointer;transition:all .3s;text-decoration:none;font-weight:700;font-size:14px}
+.map-icon:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(234,224,213,.35)}
+.phone-link{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;background:var(--frame);color:var(--text);border-radius:14px;text-decoration:none;font-weight:700;font-size:1.05rem;transition:all .3s;margin:8px}
+.phone-link:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(234,224,213,.4)}
+.phone-icon{animation:sparkle 1.5s ease-in-out infinite;display:inline-block}
+@keyframes sparkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.2) rotate(-12deg)}}
+.msg-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:14px;text-decoration:none;font-weight:700;transition:all .3s;color:#fff;min-width:180px;justify-content:center;font-size:1rem}
+.msg-btn:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.msg-whatsapp{background:#25D366}.msg-viber{background:#7360F2}.msg-telegram{background:#0088cc}
+.qr-card{background:var(--frame);color:var(--text);padding:2rem;border-radius:22px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,.35)}
+.qr-card img{width:220px;height:220px;object-fit:contain;border-radius:12px;margin:1rem auto;display:block}
+.footer{background:transparent;padding:3rem 2rem 2rem;text-align:center;border-top:1px solid rgba(234,224,213,.15)}
+.footer-logo{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--frame);margin:0 auto 1.5rem;animation:sparkleLogo 2s ease-in-out infinite}
+@keyframes sparkleLogo{0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 transparent)}50%{transform:scale(1.05);filter:drop-shadow(0 0 15px rgba(234,224,213,.6))}}
+.footer-sub{color:var(--frame);opacity:.7;font-size:.95rem;margin-top:1rem}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(34,51,59,.98);backdrop-filter:blur(10px);padding:1.5rem;border-bottom:1px solid rgba(234,224,213,.2);z-index:99;flex-direction:column;gap:1rem}
+.mobile-menu.open{display:flex}
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px}
+.hamburger span{width:26px;height:3px;background:var(--frame);border-radius:2px;transition:.3s}
+@media(max-width:900px){.desktop-nav{display:none !important}.hamburger{display:flex}.marquee-photo{width:150px;height:150px}.frame-card{padding:1.5rem}}
+.feature-list{list-style:none;padding:0}
+.feature-list li{padding:1rem 0;border-bottom:1px solid rgba(10,9,8,.12);display:flex;gap:14px;align-items:flex-start}
+.feature-list li:last-child{border-bottom:none}
+.feature-list .bullet{flex-shrink:0;width:30px;height:30px;background:var(--text);color:var(--frame);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.video-wrap{border-radius:16px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.45)}
+.video-wrap video{width:100%;display:block}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--frame);border-radius:5px}
+.qr-slide-left{opacity:0;transform:translateX(-150px);transition:all 1.3s ease}
+.qr-slide-right{opacity:0;transform:translateX(150px);transition:all 1.3s ease}
+.qr-slide-left.visible,.qr-slide-right.visible{opacity:1;transform:translateX(0)}
+.sub-heading{font-size:1.4rem;font-weight:800;color:var(--text);margin:1.5rem 0 .8rem;border-left:4px solid var(--text);padding-left:12px}
+.address-card{background:var(--frame);color:var(--text);padding:1.8rem;border-radius:16px;margin-bottom:1.2rem;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.logo-link{cursor:pointer;transition:transform .3s}
+.logo-link:hover{transform:scale(1.05)}
+</style>
+</head>
+<body>
 
+<header class="fixed top-0 left-0 right-0 z-50" style="background:rgba(34,51,59,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(234,224,213,.12)">
+<div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3 logo-link" onclick="scrollToTop()">
+<img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744461_120.jpg?v=1792232126" alt="Logo" class="w-12 h-12 rounded-full object-cover" style="border:2px solid var(--frame)">
+</div>
+<nav class="desktop-nav flex items-center gap-6 text-sm font-semibold text-frame">
+<a class="nav-link" onclick="scrollToSection('about')" data-i18n="menu_about"></a>
+<a class="nav-link" onclick="scrollToSection('training')" data-i18n="menu_training"></a>
+<a class="nav-link" onclick="scrollToSection('students')" data-i18n="menu_students"></a>
+<a class="nav-link" onclick="scrollToSection('addresses')" data-i18n="menu_addresses"></a>
+<a class="nav-link" onclick="scrollToSection('contact')" data-i18n="menu_contact"></a>
+</nav>
+<div class="flex items-center gap-2">
+<div class="flex gap-1">
+<button class="lang-btn active" data-lang="hy" onclick="setLang('hy')"><span class="flag" style="background:linear-gradient(to bottom,#D90012 33%,#0033A0 33% 66%,#F2A800 66%)"></span><span>ARM</span></button>
+<button class="lang-btn" data-lang="en" onclick="setLang('en')"><span class="flag uk-flag"></span><span>ENG</span></button>
+<button class="lang-btn" data-lang="ru" onclick="setLang('ru')"><span class="flag" style="background:linear-gradient(to bottom,#fff 33%,#0039A6 33% 66%,#D52B1E 66%)"></span><span>RUS</span></button>
+</div>
+<div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</div>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+<a class="nav-link text-frame" onclick="scrollToSection('about');toggleMobile()" data-i18n="menu_about"></a>
+<a class="nav-link text-frame" onclick="scrollToSection('training');toggleMobile()" data-i18n="menu_training"></a>
+<a class="nav-link text-frame" onclick="scrollToSection('students');toggleMobile()" data-i18n="menu_students"></a>
+<a class="nav-link text-frame" onclick="scrollToSection('addresses');toggleMobile()" data-i18n="menu_addresses"></a>
+<a class="nav-link text-frame" onclick="scrollToSection('contact');toggleMobile()" data-i18n="menu_contact"></a>
+</div>
+</header>
+
+<section class="hero" id="hero">
+<div class="hero-bg"></div>
+<div class="hero-content">
+<div class="hero-subtitle" data-i18n="hero_sub"></div>
+<h1 class="hero-title mt-4" id="heroTitle">ALBERT SHIRINYAN<br>KARATE TEAM WKF</h1>
+</div>
+</section>
+
+<section id="about" class="py-12 px-4">
+<div class="max-w-6xl mx-auto">
+<h2 class="section-title reveal" data-i18n="about_title"></h2>
+<div class="frame-card reveal mb-6">
+<p class="text-lg leading-relaxed" data-i18n="about_p1"></p>
+<div class="sub-heading" data-i18n="about_coach_title"></div>
+<p class="leading-relaxed" data-i18n="about_coach_p1"></p>
+<p class="leading-relaxed mt-3" data-i18n="about_coach_p2"></p>
+<p class="leading-relaxed mt-3" data-i18n="about_coach_p3"></p>
+<p class="leading-relaxed mt-3" data-i18n="about_coach_p4"></p>
+</div>
+<div class="grid md:grid-cols-2 gap-6 mt-8">
+<div class="photo-slide reveal-left"><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744497_121.jpg?v=1792232447" alt=""></div>
+<div class="photo-slide reveal-right"><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744515_121.jpg?v=1792232335" alt=""></div>
+</div>
+</div>
+</section>
+
+<section id="training" class="py-12 px-4">
+<div class="max-w-6xl mx-auto">
+<h2 class="section-title reveal" data-i18n="training_title"></h2>
+<div class="frame-card reveal mb-6">
+<p class="text-lg leading-relaxed" data-i18n="training_intro"></p>
+<ul class="feature-list mt-4">
+<li><span class="bullet">1</span><div><strong data-i18n="training_schedule_title"></strong><p class="mt-1" data-i18n="training_schedule_text"></p></div></li>
+</ul>
+</div>
+<div class="grid md:grid-cols-2 gap-6 items-center mb-8">
+<div class="reveal-left"><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744499_121.jpg?v=1792232446" class="w-full rounded-2xl shadow-2xl" alt=""></div>
+<div class="frame-card reveal-right">
+<ul class="feature-list">
+<li><span class="bullet">2</span><div><strong data-i18n="training_outdoor_title"></strong><p class="mt-1" data-i18n="training_outdoor_text"></p></div></li>
+<li><span class="bullet">3</span><div><strong data-i18n="training_camps_title"></strong><p class="mt-1" data-i18n="training_camps_text"></p></div></li>
+<li><span class="bullet">4</span><div><strong data-i18n="training_precomp_title"></strong><p class="mt-1" data-i18n="training_precomp_text"></p></div></li>
+<li><span class="bullet">5</span><div><strong data-i18n="training_diet_title"></strong><p class="mt-1" data-i18n="training_diet_text"></p></div></li>
+</ul>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-6 items-center mt-8 mb-8">
+<div class="frame-card reveal-left">
+<div class="sub-heading" data-i18n="belts_title"></div>
+<ul class="feature-list">
+<li><span class="bullet">🥋</span><div><strong data-i18n="belts_exam_title"></strong><p class="mt-1" data-i18n="belts_exam_text"></p></div></li>
+<li><span class="bullet">🌍</span><div><strong data-i18n="belts_int_title"></strong><p class="mt-1" data-i18n="belts_int_text"></p></div></li>
+</ul>
+</div>
+<div class="video-wrap reveal-right">
+<video controls><source src="https://cdn.shopify.com/videos/c/o/v/a2a8afa9b870498a8031f21b397ade0e.mp4" type="video/mp4"></video>
+</div>
+</div>
+<div class="frame-card reveal mt-8">
+<div class="sub-heading" data-i18n="rest_title"></div>
+<p class="leading-relaxed" data-i18n="rest_text"></p>
+<div class="mt-6"><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744498_121.jpg?v=1792232446" class="w-full rounded-2xl shadow-xl" alt=""></div>
+</div>
+</div>
+</section>
+
+<section id="students" class="py-12 px-4">
+<div class="max-w-6xl mx-auto">
+<h2 class="section-title reveal" data-i18n="students_title"></h2>
+<div class="frame-card reveal mb-6">
+<div class="sub-heading" data-i18n="students_admission"></div>
+<p class="leading-relaxed" data-i18n="students_admission_text"></p>
+<div class="sub-heading mt-6" data-i18n="students_formats"></div>
+<ul class="feature-list">
+<li><span class="bullet">•</span><div data-i18n="students_group"></div></li>
+<li><span class="bullet">•</span><div data-i18n="students_individual"></div></li>
+</ul>
+</div>
+<div class="marquee-container reveal">
+<div class="marquee-track" id="marqueeTrack"></div>
+</div>
+</div>
+</section>
+
+<section id="addresses" class="py-12 px-4">
+<div class="max-w-5xl mx-auto">
+<h2 class="section-title reveal" data-i18n="addr_title"></h2>
+<p class="text-center text-frame mb-8 reveal" data-i18n="addr_intro"></p>
+<div class="address-card reveal">
+<div class="text-2xl font-bold mb-2">📍 <span data-i18n="addr_base1_title"></span></div>
+<p class="text-lg font-semibold" data-i18n="addr_base1_name"></p>
+<p class="mt-2" data-i18n="addr_base1_address"></p>
+<a class="map-icon mt-4" id="mapLink1" target="_blank"><span>🗺️</span><span data-i18n="addr_map"></span></a>
+</div>
+<div class="address-card reveal">
+<div class="text-2xl font-bold mb-2">📍 <span data-i18n="addr_base2_title"></span></div>
+<p class="text-lg font-semibold" data-i18n="addr_base2_name"></p>
+<p class="mt-2" data-i18n="addr_base2_address"></p>
+<a class="map-icon mt-4" id="mapLink2" target="_blank"><span>🗺️</span><span data-i18n="addr_map"></span></a>
+</div>
+</div>
+</section>
+
+<section id="contact" class="py-12 px-4">
+<div class="max-w-5xl mx-auto">
+<h2 class="section-title reveal" data-i18n="contact_title"></h2>
+<div class="frame-card reveal mb-6">
+<p class="text-lg leading-relaxed" data-i18n="contact_intro"></p>
+<div class="sub-heading" data-i18n="contact_phones"></div>
+<div class="flex flex-wrap justify-center gap-2 mt-4">
+<a href="tel:+37493484800" class="phone-link"><span class="phone-icon">📞</span>+374 93 48 48 00</a>
+<a href="tel:+37491208808" class="phone-link"><span class="phone-icon">📞</span>+374 91 20 88 08</a>
+</div>
+<div class="sub-heading mt-6" data-i18n="contact_messengers"></div>
+<p data-i18n="contact_messengers_text"></p>
+<div class="flex flex-wrap justify-center gap-3 mt-4">
+<a href="https://wa.me/37493484800" target="_blank" class="msg-btn msg-whatsapp">💬 WhatsApp</a>
+<a href="viber://chat?number=%2B37493484800" class="msg-btn msg-viber">🟣 Viber</a>
+<a href="https://t.me/+37493484800" target="_blank" class="msg-btn msg-telegram">✈️ Telegram</a>
+</div>
+<div class="sub-heading mt-6" data-i18n="contact_social"></div>
+<p data-i18n="contact_social_text"></p>
+</div>
+<div class="grid md:grid-cols-2 gap-6 mt-6">
+<div class="qr-slide-left qr-card"><h3 class="text-2xl font-bold">Instagram</h3><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/insta.png?v=1792232107" alt="Instagram QR"></div>
+<div class="qr-slide-right qr-card"><h3 class="text-2xl font-bold">Facebook</h3><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/Facebook-1024.jpg?v=1792232120" alt="Facebook QR"></div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744461_120.jpg?v=1792232126" alt="Logo" class="footer-logo">
+<div class="footer-sub" data-i18n="footer_sub"></div>
+</footer>
+
+<script>
+const translations = {
+hy:{
+menu_about:"Մեր Մասին",
+menu_training:"Մարզումների Ընթացակարգը",
+menu_students:"Մեր Սաները և Ընդունdelays",
+menu_addresses:"Մարզումների Հdelays",
+menu_contact:"Կdelays Մdelays Հdelays",
+hero_sub:"Կdelays • Ուdelays • Հdelays",
+about_title:"Մdelays մdelays",
+about_p1:"«Հdelays Կdelays Ֆdelays» մdelays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays......",
+about_coach_title:"Մdelays Մdelays՝ Delays Delays",
+about_coach_p1:"Delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays......
