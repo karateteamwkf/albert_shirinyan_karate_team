@@ -19,15 +19,21 @@ body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Arme
 .lang-btn{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;transition:all .3s;cursor:pointer;font-size:13px;font-weight:700;background:transparent;border:1px solid transparent;color:var(--frame)}
 .lang-btn:hover{background:rgba(234,224,213,.1)}
 .lang-btn.active{background:var(--frame);color:var(--text);border-color:var(--frame)}
-.flag{width:22px;height:15px;border-radius:3px;display:inline-block;overflow:hidden;flex-shrink:0}
-.uk-flag{background:#012169;position:relative}
-.uk-flag::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 45%,#fff 45% 55%,transparent 55%),linear-gradient(to right,transparent 45%,#fff 45% 55%,transparent 55%)}
-.uk-flag::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 45%,#C8102E 45% 55%,transparent 55%),linear-gradient(-45deg,transparent 45%,#C8102E 45% 55%,transparent 55%)}
+.flag{width:22px;height:15px;border-radius:3px;display:inline-block;overflow:hidden;flex-shrink:0;position:relative}
+.uk-flag{background:#012169}
+.uk-flag::before{content:'';position:absolute;inset:0;background:
+linear-gradient(to bottom,transparent 42%,#fff 42% 58%,transparent 58%),
+linear-gradient(to right,transparent 42%,#fff 42% 58%,transparent 58%),
+linear-gradient(45deg,transparent 44%,#C8102E 44% 56%,transparent 56%),
+linear-gradient(-45deg,transparent 44%,#C8102E 44% 56%,transparent 56%)}
+.uk-flag::after{content:'';position:absolute;inset:0;background:
+linear-gradient(to bottom,transparent 46%,#C8102E 46% 54%,transparent 54%),
+linear-gradient(to right,transparent 46%,#C8102E 46% 54%,transparent 54%)}
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background-image:url('https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744512_121.jpg?v=1792232409');background-size:cover;background-position:center;filter:brightness(.5);transform:scale(1.05);animation:heroZoom 20s ease-in-out infinite alternate}
 @keyframes heroZoom{0%{transform:scale(1.05)}100%{transform:scale(1.15)}}
 .hero-content{position:relative;z-index:2;text-align:center;padding:2rem}
-.hero-title{font-size:clamp(2.2rem,6vw,4.8rem);font-weight:900;letter-spacing:2px;color:var(--frame);text-shadow:0 4px 25px rgba(0,0,0,.7);line-height:1.1;font-family:'Courier New',monospace}
+.hero-title{font-size:clamp(2.2rem,6vw,4.8rem);font-weight:900;letter-spacing:2px;color:var(--frame);text-shadow:0 4px 25px rgba(0,0,0,.7);line-height:1.1;font-family:'Courier New',monospace;min-height:2.4em}
 .hero-subtitle{font-size:clamp(.9rem,1.8vw,1.3rem);color:var(--frame);margin-top:1rem;opacity:.9;letter-spacing:4px;text-transform:uppercase}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -40,13 +46,15 @@ body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Arme
 .photo-slide{border-radius:16px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.45);transition:transform .5s}
 .photo-slide:hover{transform:scale(1.03)}
 .photo-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.certificate-photo{border-radius:16px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.45);max-width:400px;margin:2rem auto}
+.certificate-photo img{width:100%;height:auto;display:block}
 .marquee-container{width:100%;overflow:hidden;padding:2rem 0;position:relative}
-.marquee-track{display:flex;gap:2rem;animation:marquee 40s linear infinite;width:max-content}
-.marquee-photo{width:200px;height:200px;border-radius:50%;overflow:hidden;border:4px solid var(--frame);box-shadow:0 8px 25px rgba(0,0,0,.5);flex-shrink:0;animation:pulse 3.5s ease-in-out infinite}
+.marquee-track{display:flex;gap:2rem;animation:marquee 45s linear infinite;width:max-content}
+.marquee-photo{width:180px;height:180px;border-radius:50%;overflow:hidden;border:4px solid var(--frame);box-shadow:0 8px 25px rgba(0,0,0,.5);flex-shrink:0;animation:pulse 3.5s ease-in-out infinite}
 .marquee-photo img{width:100%;height:100%;object-fit:cover}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
-.map-icon{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--frame);color:var(--text);border-radius:12px;cursor:pointer;transition:all .3s;text-decoration:none;font-weight:700;font-size:14px}
+.map-icon{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--frame);color:var(--text);border-radius:12px;cursor:pointer;transition:all .3s;text-decoration:none;font-weight:700;font-size:14px;margin-top:1rem}
 .map-icon:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(234,224,213,.35)}
 .phone-link{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;background:var(--frame);color:var(--text);border-radius:14px;text-decoration:none;font-weight:700;font-size:1.05rem;transition:all .3s;margin:8px}
 .phone-link:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(234,224,213,.4)}
@@ -54,18 +62,27 @@ body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Arme
 @keyframes sparkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.2) rotate(-12deg)}}
 .msg-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:14px;text-decoration:none;font-weight:700;transition:all .3s;color:#fff;min-width:180px;justify-content:center;font-size:1rem}
 .msg-btn:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.35)}
-.msg-whatsapp{background:#25D366}.msg-viber{background:#7360F2}.msg-telegram{background:#0088cc}
+.msg-whatsapp{background:#25D366}
+.msg-viber{background:#7360F2}
+.msg-telegram{background:#0088cc}
 .qr-card{background:var(--frame);color:var(--text);padding:2rem;border-radius:22px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,.35)}
 .qr-card img{width:220px;height:220px;object-fit:contain;border-radius:12px;margin:1rem auto;display:block}
 .footer{background:transparent;padding:3rem 2rem 2rem;text-align:center;border-top:1px solid rgba(234,224,213,.15)}
 .footer-logo{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--frame);margin:0 auto 1.5rem;animation:sparkleLogo 2s ease-in-out infinite}
 @keyframes sparkleLogo{0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 transparent)}50%{transform:scale(1.05);filter:drop-shadow(0 0 15px rgba(234,224,213,.6))}}
-.footer-sub{color:var(--frame);opacity:.7;font-size:.95rem;margin-top:1rem}
+.footer-sub{color:var(--frame);opacity:.85;font-size:1rem;margin-top:1rem;font-weight:500}
 .mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(34,51,59,.98);backdrop-filter:blur(10px);padding:1.5rem;border-bottom:1px solid rgba(234,224,213,.2);z-index:99;flex-direction:column;gap:1rem}
 .mobile-menu.open{display:flex}
 .hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px}
 .hamburger span{width:26px;height:3px;background:var(--frame);border-radius:2px;transition:.3s}
-@media(max-width:900px){.desktop-nav{display:none !important}.hamburger{display:flex}.marquee-photo{width:150px;height:150px}.frame-card{padding:1.5rem}}
+@media(max-width:900px){
+.desktop-nav{display:none !important}
+.hamburger{display:flex}
+.marquee-photo{width:140px;height:140px}
+.frame-card{padding:1.5rem}
+.hero-title{font-size:clamp(1.8rem,8vw,3rem)}
+.qr-card img{width:180px;height:180px}
+}
 .feature-list{list-style:none;padding:0}
 .feature-list li{padding:1rem 0;border-bottom:1px solid rgba(10,9,8,.12);display:flex;gap:14px;align-items:flex-start}
 .feature-list li:last-child{border-bottom:none}
@@ -88,7 +105,7 @@ body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Arme
 
 <header class="fixed top-0 left-0 right-0 z-50" style="background:rgba(34,51,59,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(234,224,213,.12)">
 <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-<div class="flex items-center gap-3 logo-link" onclick="scrollToTop()">
+<div class="flex items-center gap-3 logo-link" onclick="scrollToHero()">
 <img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744461_120.jpg?v=1792232126" alt="Logo" class="w-12 h-12 rounded-full object-cover" style="border:2px solid var(--frame)">
 </div>
 <nav class="desktop-nav flex items-center gap-6 text-sm font-semibold text-frame">
@@ -120,7 +137,7 @@ body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Arme
 <div class="hero-bg"></div>
 <div class="hero-content">
 <div class="hero-subtitle" data-i18n="hero_sub"></div>
-<h1 class="hero-title mt-4" id="heroTitle">ALBERT SHIRINYAN<br>KARATE TEAM WKF</h1>
+<h1 class="hero-title mt-4" id="heroTitle"></h1>
 </div>
 </section>
 
@@ -138,6 +155,9 @@ body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Arme
 <div class="grid md:grid-cols-2 gap-6 mt-8">
 <div class="photo-slide reveal-left"><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744497_121.jpg?v=1792232447" alt=""></div>
 <div class="photo-slide reveal-right"><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744515_121.jpg?v=1792232335" alt=""></div>
+</div>
+<div class="certificate-photo reveal">
+<img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744499_121.jpg?v=1792232446" alt="Certificate">
 </div>
 </div>
 </section>
@@ -208,13 +228,13 @@ body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Arme
 <div class="text-2xl font-bold mb-2">📍 <span data-i18n="addr_base1_title"></span></div>
 <p class="text-lg font-semibold" data-i18n="addr_base1_name"></p>
 <p class="mt-2" data-i18n="addr_base1_address"></p>
-<a class="map-icon mt-4" id="mapLink1" target="_blank"><span>🗺️</span><span data-i18n="addr_map"></span></a>
+<a class="map-icon" id="mapLink1" target="_blank"><span>🗺️</span><span data-i18n="addr_map"></span></a>
 </div>
 <div class="address-card reveal">
 <div class="text-2xl font-bold mb-2">📍 <span data-i18n="addr_base2_title"></span></div>
 <p class="text-lg font-semibold" data-i18n="addr_base2_name"></p>
 <p class="mt-2" data-i18n="addr_base2_address"></p>
-<a class="map-icon mt-4" id="mapLink2" target="_blank"><span>🗺️</span><span data-i18n="addr_map"></span></a>
+<a class="map-icon" id="mapLink2" target="_blank"><span>🗺️</span><span data-i18n="addr_map"></span></a>
 </div>
 </div>
 </section>
@@ -256,11 +276,262 @@ const translations = {
 hy:{
 menu_about:"Մեր Մասին",
 menu_training:"Մարզումների Ընթացակարգը",
-menu_students:"Մեր Սաները և Ընդունdelays",
-menu_addresses:"Մարզումների Հdelays",
+menu_students:"Մեր Սաները և Ընdelays",
+menu_addresses:"Մdelays Հdelays",
 menu_contact:"Կdelays Մdelays Հdelays",
 hero_sub:"Կdelays • Ուdelays • Հdelays",
 about_title:"Մdelays մdelays",
-about_p1:"«Հdelays Կdelays Ֆdelays» մdelays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays......",
+about_p1:"«Հdelays Կdelays Ֆdelays» մdelays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays......",
 about_coach_title:"Մdelays Մdelays՝ Delays Delays",
-about_coach_p1:"Delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays......
+about_coach_p1:"Delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays......",
+about_coach_p2:"Delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays......",
+about_coach_p3:"Delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays......",
+about_coach_p4:"Delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays delays......",
+training_title:"Delays",
+training_intro:"Delays",
+training_schedule_title:"Delays",
+training_schedule_text:"Delays",
+training_outdoor_title:"Delays",
+training_outdoor_text:"Delays",
+training_camps_title:"Delays",
+training_camps_text:"Delays",
+training_precomp_title:"Delays",
+training_precomp_text:"Delays",
+training_diet_title:"Delays",
+training_diet_text:"Delays",
+belts_title:"Delays",
+belts_exam_title:"Delays",
+belts_exam_text:"Delays",
+belts_int_title:"Delays",
+belts_int_text:"Delays",
+rest_title:"Delays",
+rest_text:"Delays",
+students_title:"Delays",
+students_admission:"Delays",
+students_admission_text:"Delays",
+students_formats:"Delays",
+students_group:"Delays",
+students_individual:"Delays",
+addr_title:"Delays",
+addr_intro:"Delays",
+addr_base1_title:"Delays №1",
+addr_base1_name:"Delays",
+addr_base1_address:"Delays",
+addr_base2_title:"Delays №2",
+addr_base2_name:"Delays",
+addr_base2_address:"Delays",
+addr_map:"Delays",
+contact_title:"Delays",
+contact_intro:"Delays",
+contact_phones:"Delays",
+contact_messengers:"Delays",
+contact_messengers_text:"Delays",
+contact_social:"Delays",
+contact_social_text:"Delays",
+footer_sub:"Delays"
+},
+en:{
+menu_about:"About Us",
+menu_training:"Training Process",
+menu_students:"Our Students & Admission",
+menu_addresses:"Training Addresses",
+menu_contact:"Contact Us",
+hero_sub:"KARATE • DISCIPLINE • VICTORY",
+about_title:"About Us",
+about_p1:"The \"Karate Federation of Armenia\" is the only official organization recognized by the RA Ministry of Education, Science, Culture and Sport and the National Olympic Committee of Armenia (Federation President: Vazgen Harutyunyan). \"Albert Shirinyan Team WKF\" club is a full member of this federation.",
+about_coach_title:"Our Coach — Albert Shirinyan",
+about_coach_p1:"The founder and head coach of the club, Albert Shirinyan, before starting his coaching career, was a high-level athlete and a member of the Armenian national karate team. He is a multiple champion of the Republic of Armenia, as well as a winner and prize-winner of prestigious international tournaments.",
+about_coach_p2:"Since transitioning to coaching in 2020, Albert Shirinyan has achieved impressive results in a short period: his students demonstrate high achievements both in Armenia and beyond its borders.",
+about_coach_p3:"Due to his high professionalism, by order of Federation President Vazgen Harutyunyan, Albert Shirinyan was appointed as the assistant to the head coach Serozhya Makaryan — senior coach of the Armenian National Team.",
+about_coach_p4:"Now the coach actively participates in the preparation work of the national team, as the \"2027 European Championship\" will be hosted by our homeland, welcoming athletes, coaches, and referees from more than 50 countries.",
+training_title:"Training Process",
+training_intro:"We offer an effective and systematic training program designed for different age groups, both beginner and experienced athletes.",
+training_schedule_title:"Training Schedule:",
+training_schedule_text:"Training sessions are held every day. Each session lasts 1.5 hours.",
+training_outdoor_title:"Outdoor Training:",
+training_outdoor_text:"Once a week we conduct outdoor training sessions and cross-country running to improve physical fitness and endurance.",
+training_camps_title:"Training Camps:",
+training_camps_text:"Every 3-4 months we organize specialized training camps that contribute to the rapid development of skills.",
+training_precomp_title:"Pre-competition Preparation:",
+training_precomp_text:"Before tournaments, we switch to an even more intensive daily special regime.",
+training_diet_title:"Individual Diet:",
+training_diet_text:"A special diet is developed for professional athletes to ensure maximum results.",
+belts_title:"Belt Qualification & Competitions",
+belts_exam_title:"Belt Qualification Exams:",
+belts_exam_text:"Once a year, a belt qualification exam is held. The belt color reflects the athlete's growth and level of preparedness — from beginner to skilled athlete.",
+belts_int_title:"International Platforms:",
+belts_int_text:"Our club's students successfully compete both in Armenian championships and in prestigious international tournaments in Europe, the USA, and other countries.",
+rest_title:"Rest & Team Life",
+rest_text:"In addition to intensive sports training, we organize rest days for our students, where we combine pleasure with benefit, creating a united and warm environment.",
+students_title:"Our Students & Admission",
+students_admission:"Admission",
+students_admission_text:"Our club opens its doors to all boys and girls aged 4 and above. We provide an individual approach for each child, contributing to their physical, willpower, and sports development.",
+students_formats:"Training Formats",
+students_group:"Group training sessions by age groups and level of preparedness.",
+students_individual:"Individual training sessions for more intensive and focused preparation.",
+addr_title:"Training Addresses",
+addr_intro:"Our training sessions are held at the following addresses:",
+addr_base1_title:"Training Base №1",
+addr_base1_name:"V. Mayakovsky named School No. 7",
+addr_base1_address:"Address: Yerevan, Kentron, Grigor Lusavorchich St., Building 7 (0015)",
+addr_base2_title:"Training Base №2",
+addr_base2_name:"A. Khanchyan named Basic School No. 53",
+addr_base2_address:"Address: Yerevan, Kentron, Tigran Mets Ave., Building 26a, 0018",
+addr_map:"Open in Maps",
+contact_title:"Contact Us",
+contact_intro:"We are always ready to answer your questions and help you register for training.",
+contact_phones:"Phone Numbers",
+contact_messengers:"Quick Contact via Messengers (+374 93 48 48 00)",
+contact_messengers_text:"Click on the corresponding icon to start the chat immediately:",
+contact_social:"Follow Us on Social Media",
+contact_social_text:"Scan the QR codes or click the links to follow our pages:",
+footer_sub:"With love — ALBERT SHIRINYAN KARATE TEAM WKF"
+},
+ru:{
+menu_about:"О нас",
+menu_training:"Процесс тренировок",
+menu_students:"Наши ученики и приём",
+menu_addresses:"Адреса тренировок",
+menu_contact:"Свяжитесь с нами",
+hero_sub:"КАРАТЭ • ДИСЦИПЛИНА • ПОБЕДА",
+about_title:"О нас",
+about_p1:"«Федерация каратэ Армении» — единственная официальная организация, признанная Министерством образования, науки, культуры и спорта РА и Национальным олимпийским комитетом Армении (президент Федерации: Вазген Арутюнян). Клуб «Albert Shirinyan Team WKF» является полноправным членом этой федерации.",
+about_coach_title:"Наш тренер — Альберт Ширинян",
+about_coach_p1:"Основатель и главный тренер клуба Альберт Ширинян, до начала тренерской карьеры, был высококлассным спортсменом и членом национальной сборной Армении по каратэ. Он является многократным чемпионом Республики Армения, а также победителем и призёром престижных международных турниров.",
+about_coach_p2:"Перейдя к тренерской деятельности в 2020 году, Альберт Ширинян за короткий период добился впечатляющих успехов: его ученики показывают высокие результаты как в Армении, так и за её пределами.",
+about_coach_p3:"Благодаря высокому профессионализму, по распоряжению президента Федерации Вазгена Арутюняна, Альберт Ширинян был назначен помощником главного тренера Сержи Макаряна — старшим тренером национальной сборной Армении.",
+about_coach_p4:"Сейчас тренер активно участвует в подготовительной работе национальной сборной, поскольку «Чемпионат Европы 2027 года» примет наша родина, приняв спортсменов, тренеров и судей из более чем 50 стран.",
+training_title:"Процесс тренировок",
+training_intro:"Мы предлагаем эффективную и систематическую программу тренировок, предназначенную для различных возрастных групп — как начинающих, так и опытных спортсменов.",
+training_schedule_title:"График тренировок:",
+training_schedule_text:"Тренировки проводятся каждый день. Каждое занятие длится 1,5 часа.",
+training_outdoor_title:"Тренировки на открытом воздухе:",
+training_outdoor_text:"Раз в неделю мы проводим тренировки на открытом воздухе и кроссы с целью повышения физической подготовки и выносливости.",
+training_camps_title:"Учебно-тренировочные сборы:",
+training_camps_text:"Раз в 3-4 месяца мы организуем специализированные учебно-тренировочные сборы, способствующие быстрому развитию навыков.",
+training_precomp_title:"Предсоревновательная подготовка:",
+training_precomp_text:"Перед турнирами мы переходим на ещё более интенсивный ежедневный специальный режим.",
+training_diet_title:"Индивидуальное питание:",
+training_diet_text:"Для профессиональных спортсменов разрабатывается специальное питание для обеспечения максимальных результатов.",
+belts_title:"Квалификация поясов и Соревнования",
+belts_exam_title:"Экзамены на квалификацию поясов:",
+belts_exam_text:"Раз в год проводится экзамен на квалификацию поясов. Цвет пояса отражает рост и уровень подготовленности спортсмена — от новичка до опытного атлета.",
+belts_int_title:"Международные платформы:",
+belts_int_text:"Ученики нашего клуба успешно выступают как на чемпионатах Армении, так и на престижных международных турнирах в Европе, США и других странах.",
+rest_title:"Отдых и Командная жизнь",
+rest_text:"Помимо интенсивных спортивных тренировок, мы организуем дни отдыха для наших учеников, где совмещаем приятное с полезным, создавая сплочённую и тёплую атмосферу.",
+students_title:"Наши ученики и Приём",
+students_admission:"Приём",
+students_admission_text:"Наш клуб открывает свои двери для всех мальчиков и девочек от 4 лет. Мы обеспечиваем индивидуальный подход к каждому ребёнку, способствуя их физическому, волевому и спортивному развитию.",
+students_formats:"Форматы тренировок",
+students_group:"Групповые тренировки по возрастным группам и уровню подготовки.",
+students_individual:"Индивидуальные тренировки для более интенсивной и целенаправленной подготовки.",
+addr_title:"Адреса тренировок",
+addr_intro:"Наши тренировки проводятся по следующим адресам:",
+addr_base1_title:"Тренировочная База №1",
+addr_base1_name:"Школа №7 им. В. Маяковского",
+addr_base1_address:"Адрес: г. Ереван, Кентрон, ул. Григора Лусаворчича, дом 7 (0015)",
+addr_base2_title:"Тренировочная База №2",
+addr_base2_name:"Основная школа №53 им. А. Ханджяна",
+addr_base2_address:"Адрес: г. Ереван, Кентрон, проспект Тиграна Меца, дом 26а, 0018",
+addr_map:"Открыть в Картах",
+contact_title:"Свяжитесь с нами",
+contact_intro:"Мы всегда готовы ответить на ваши вопросы и помочь записаться на тренировки.",
+contact_phones:"Номера телефонов",
+contact_messengers:"Быстрая связь через мессенджеры (+374 93 48 48 00)",
+contact_messengers_text:"Нажмите на соответствующий значок, чтобы сразу начать чат:",
+contact_social:"Подписывайтесь на нас в соцсетях",
+contact_social_text:"Сканируйте QR-коды или нажмите на ссылки, чтобы подписаться на наши страницы:",
+footer_sub:"С любовью — ALBERT SHIRINYAN KARATE TEAM WKF"
+}
+};
+
+let currentLang='hy';
+function setLang(lang){
+currentLang=lang;
+document.documentElement.lang=lang==='hy'?'hy':lang==='ru'?'ru':'en';
+document.querySelectorAll('.lang-btn').forEach(btn=>{btn.classList.toggle('active',btn.dataset.lang===lang)});
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+const key=el.dataset.i18n;
+if(translations[lang]&&translations[lang][key]){el.textContent=translations[lang][key]}
+});
+updateMapLinks();
+runHeroDecode();
+}
+function updateMapLinks(){
+const addr1="Grigor Lusavorchich 7, Yerevan, Armenia";
+const addr2="Tigran Mets Ave 26a, Yerevan, Armenia";
+const langMap={hy:'hy',en:'en',ru:'ru'};
+document.getElementById('mapLink1').href=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr1)}&hl=${langMap[currentLang]}`;
+document.getElementById('mapLink2').href=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr2)}&hl=${langMap[currentLang]}`;
+}
+function scrollToSection(id){
+const el=document.getElementById(id);
+if(el){const offset=80;const top=el.getBoundingClientRect().top+window.pageYOffset-offset;window.scrollTo({top,behavior:'smooth'})}
+}
+function scrollToHero(){
+window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleMobile(){document.getElementById('mobileMenu').classList.toggle('open')}
+
+const spinPhotos=['https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744506_121.jpg?v=1792232446','https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744504_121.jpg?v=1792232446','https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744503_121.jpg?v=1792232446','https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744500_121.jpg?v=1792232446','https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744501_121.jpg?v=1792232446','https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744511_121.jpg?v=1792232409','https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744508_121.jpg?v=1792232409','https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744507_121.jpg?v=1792232409','https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744509_121.jpg?v=1792232409','https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744514_121.jpg?v=1792232343'];
+
+function buildMarquee(){
+const track=document.getElementById('marqueeTrack');
+const allPhotos=[...spinPhotos,...spinPhotos];
+allPhotos.forEach((src,i)=>{
+const photo=document.createElement('div');
+photo.className='marquee-photo';
+photo.style.animationDelay=(i*0.35)+'s';
+photo.innerHTML=`<img src="${src}" alt="">`;
+track.appendChild(photo);
+});
+}
+
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}else{
+if(entry.target.classList.contains('reveal-left')||entry.target.classList.contains('reveal-right')){
+entry.target.classList.remove('visible');
+}
+}
+});
+},{threshold:0.15});
+
+document.addEventListener('DOMContentLoaded',()=>{
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.qr-slide-left,.qr-slide-right').forEach(el=>{observer.observe(el)});
+buildMarquee();
+setLang('hy');
+runHeroDecode();
+});
+
+function runHeroDecode(){
+const el=document.getElementById('heroTitle');
+const heroTexts={
+hy:"ALBERT SHIRINYAN\nKARATE TEAM WKF",
+en:"ALBERT SHIRINYAN\nKARATE TEAM WKF",
+ru:"ALBERT SHIRINYAN\nKARATE TEAM WKF"
+};
+const finalText=heroTexts[currentLang]||heroTexts.hy;
+const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%';
+let iteration=0;
+const interval=setInterval(()=>{
+el.innerHTML=finalText.split('').map((char,idx)=>{
+if(idx<iteration)return char==='\n'?'<br>':char;
+if(char==='\n')return'<br>';
+if(char===' ')return' ';
+return chars[Math.floor(Math.random()*chars.length)];
+}).join('');
+if(iteration>=finalText.length){
+clearInterval(interval);
+setTimeout(runHeroDecode,6000);
+}
+iteration+=1/3;
+},50);
+}
+</script>
+
+</body>
+</html>
