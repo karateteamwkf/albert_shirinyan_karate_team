@@ -36,7 +36,7 @@ body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Arme
 .reveal-right.visible{opacity:1;transform:translateX(0)}
 .section-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:var(--frame);margin-bottom:1.5rem;text-align:center}
 .section-title::after{content:'';display:block;width:80px;height:3px;background:var(--frame);margin:1rem auto 0;border-radius:2px}
-.photo-slide{border-radius:16px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.45);transition:transform .5s}
+.photo-slide{border-radius:16px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.45);transition:transform .5s;aspect-ratio:4/5}
 .photo-slide:hover{transform:scale(1.03)}
 .photo-slide img{width:100%;height:100%;object-fit:cover;display:block}
 .marquee-container{width:100%;overflow:hidden;padding:2rem 0;position:relative}
@@ -143,7 +143,7 @@ body{background:var(--bg);color:var(--frame);font-family:'Inter','Noto Sans Arme
 <p class="leading-relaxed mt-3" data-i18n="about_coach_p3"></p>
 <p class="leading-relaxed mt-3" data-i18n="about_coach_p4"></p>
 </div>
-<div class="grid md:grid-cols-2 gap-6 mt-8">
+<div class="grid grid-cols-2 gap-3 md:gap-6 mt-8">
 <div class="photo-slide reveal-left"><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247744497_121.jpg?v=1792232447" alt=""></div>
 <div class="photo-slide reveal-right"><img src="https://cdn.shopify.com/s/files/1/0681/9050/2974/files/5375229877247745030_121.jpg?v=1792255067" alt=""></div>
 </div>
